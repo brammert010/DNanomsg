@@ -69,6 +69,7 @@
       <MainSource>MainSource</MainSource>
     </DelphiCompile>
     <DCCReference Include="$(SystemRoot)\system32\rtl.dcp" />
+    <DCCReference Include="src\Interop.pas" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
 </Project>

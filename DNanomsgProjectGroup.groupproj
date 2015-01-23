@@ -5,6 +5,7 @@
   <ItemGroup />
   <ItemGroup>
     <Projects Include="DNanomsg\DNanomsg.dproj" />
+    <Projects Include="Example\Example_Program.dproj" />
   </ItemGroup>
   <ProjectExtensions>
     <Borland.Personality>Default.Personality</Borland.Personality>
@@ -21,14 +22,23 @@
   <Target Name="DNanomsg:Make">
     <MSBuild Projects="DNanomsg\DNanomsg.dproj" Targets="Make" />
   </Target>
+  <Target Name="Example_Program">
+    <MSBuild Projects="Example\Example_Program.dproj" Targets="" />
+  </Target>
+  <Target Name="Example_Program:Clean">
+    <MSBuild Projects="Example\Example_Program.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="Example_Program:Make">
+    <MSBuild Projects="Example\Example_Program.dproj" Targets="Make" />
+  </Target>
   <Target Name="Build">
-    <CallTarget Targets="DNanomsg" />
+    <CallTarget Targets="DNanomsg;Example_Program" />
   </Target>
   <Target Name="Clean">
-    <CallTarget Targets="DNanomsg:Clean" />
+    <CallTarget Targets="DNanomsg:Clean;Example_Program:Clean" />
   </Target>
   <Target Name="Make">
-    <CallTarget Targets="DNanomsg:Make" />
+    <CallTarget Targets="DNanomsg:Make;Example_Program:Make" />
   </Target>
   <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
 </Project>

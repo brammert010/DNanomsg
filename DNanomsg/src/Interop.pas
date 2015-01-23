@@ -123,6 +123,9 @@ type
     procedure Initialize;
     
     property nn_socket: Tnn_socket read Fnn_socket;
+    property nn_connect: Tnn_connect read Fnn_connect;
+    property nn_bind: Tnn_bind read Fnn_bind;
+    property nn_send: Tnn_send read Fnn_send;
   end;
 
   TNanomsgLibraryLoader = class
@@ -135,7 +138,7 @@ implementation
 
 procedure TInterop.Initialize;
 begin
-  FnanomsgAddr := 0; // TODO
+  FnanomsgAddr := LoadLibrary('.\nanomsg.dll'); // FIXME
 
   Fnn_socket := TNanomsgLibraryLoader.Lookup(FnanomsgAddr, 'nn_socket');
   Fnn_connect := TNanomsgLibraryLoader.Lookup(FnanomsgAddr, 'nn_connect');
