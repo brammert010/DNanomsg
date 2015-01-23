@@ -29,6 +29,7 @@ requires
   rtl;
 
 contains
-  Interop in 'src\Interop.pas';
+  Interop in 'src\Interop.pas',
+  Enums in 'src\Enums.pas';
 
 end.
